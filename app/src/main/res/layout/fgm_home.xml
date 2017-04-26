@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#CECECE">
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_bg"
+            android:hint="搜索"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColorHint="#EAEAEA"
+            />
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="22dp"
+            android:padding="5dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/search"/>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+    </android.support.v4.view.ViewPager>
+
+    <GridView
+
+        android:id="@+id/gridView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:horizontalSpacing="0.0dip"
+        android:listSelector="@color/transparent"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="0.0dip">
+    </GridView>
+</LinearLayout>

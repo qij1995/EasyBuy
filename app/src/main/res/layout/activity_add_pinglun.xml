@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        >
+        <TextView
+            android:id="@+id/tv_back"
+            style="@style/back_textview"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:text="添加评论"
+            android:textColor="@android:color/white"
+            />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/et_bg"
+        android:hint="请输入评论内容..."
+        android:gravity="top"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/login_btn_bg"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="提交"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+</LinearLayout>
