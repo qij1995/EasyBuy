@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/guide_page_four"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.my.easybuy.activity.page.GuidePageTwo">
+
+    <ImageView
+        android:id="@+id/iv_enter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/loading02"
+        android:scaleType="centerCrop"
+        />
+<RelativeLayout
+    android:id="@+id/rl_enter"
+    android:layout_width="150dp"
+    android:layout_height="48dp"
+    android:background="@null"
+    android:text=""
+    android:textColor="#FBD3A2"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="23dp">
+
+ </RelativeLayout>
+</RelativeLayout>

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.my.easybuy">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -24,13 +24,14 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <application
-        android:name="com.my.easybuy.application.MyApplication"
+        android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.my.easybuy.activity.GuideActivity"
+        <activity
+            android:name=".activity.SplashActivity"
             android:theme="@style/WelcomeTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,26 +39,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.my.easybuy.activity.LoginActivity"/>
-        <activity android:name="com.my.easybuy.activity.GoodsDetailActivity"/>
-        <activity android:name="com.my.easybuy.activity.ShopListActivity"/>
-        <activity android:name="com.my.easybuy.activity.MainActivity"/>
-        <activity android:name="com.my.easybuy.activity.RegisterActivity"/>
-        <activity android:name="com.my.easybuy.activity.AddressListActivity"/>
-        <activity android:name="com.my.easybuy.activity.AddAddressActivity"/>
-        <activity android:name="com.my.easybuy.activity.BuyGoodsActivity"/>
-        <activity android:name="com.my.easybuy.activity.ShopCartAddressActivity"/>
-        <activity android:name="com.my.easybuy.activity.PersonActivity"/>
-        <activity android:name="com.my.easybuy.activity.SubmitImageActivity"
-            android:theme="@style/Theme_dialog"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.my.easybuy.activity.MyBuyActivity"/>
-        <activity android:name="com.my.easybuy.activity.SearchActivity"/>
-        <activity android:name="com.my.easybuy.activity.PingLunActivity"/>
-        <activity android:name="com.my.easybuy.activity.AddPingLunActivity"/>
-        <activity android:name="com.my.easybuy.activity.DaiFaHuoActivity"/>
-        <activity android:name="com.my.easybuy.activity.DaiFuKuanActivity"/>
-        <activity android:name="com.my.easybuy.activity.EditGoodsActivity"/>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.GoodsDetailActivity" />
+        <activity android:name=".activity.ShopListActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.AddressListActivity" />
+        <activity android:name=".activity.AddAddressActivity" />
+        <activity android:name=".activity.BuyGoodsActivity" />
+        <activity android:name=".activity.ShopCartAddressActivity" />
+        <activity android:name=".activity.PersonActivity" />
+        <activity
+            android:name=".activity.SubmitImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_dialog" />
+        <activity android:name=".activity.MyBuyActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.PingLunActivity" />
+        <activity android:name=".activity.AddPingLunActivity" />
+        <activity android:name=".activity.DaiFaHuoActivity" />
+        <activity android:name=".activity.DaiFuKuanActivity" />
+        <activity android:name=".activity.EditGoodsActivity" />
+        <activity android:name=".activity.GuideActivity"></activity>
     </application>
 
 </manifest>

@@ -9,5 +9,6 @@
     <color name="bg_no_photo">#EEEEEE</color>
     <color name="price_color">#fd4836</color>
     <color name="gray">#E6E4E5</color>
+    <color name="mgray">#808080</color>
 
 </resources>
