@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.my.easybuy.activity.SearchActivity;
@@ -183,12 +184,15 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemClickLis
             case R.id.iv_search:
                 String content=et_search.getText().toString().trim();
                 Intent intent=new Intent();
-                if (content!=null){
+                if (content!=null && content.length() > 0){
                     intent.putExtra("content",content);
+                    intent.setClass(context, SearchActivity.class);
+                    et_search.getText().clear();
+                    startActivity(intent);
                 }
-                intent.setClass(context, SearchActivity.class);
-                startActivity(intent);
-
+                else {
+                    Toast.makeText(context, "请输入要搜索的内容", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }

@@ -83,7 +83,7 @@ public class BuyGoodsActivity extends Activity implements View.OnClickListener{
             case R.id.tv_ok:
                 String password=et_password.getText().toString().trim();
                 if (password==null || password.length()!=6){
-                    Toast.makeText(this,"请先填写完密码...",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"请先填写完整6位密码...",Toast.LENGTH_SHORT).show();
                 }else {
                     android.support.v7.app.AlertDialog.Builder dialog=new android.support.v7.app.AlertDialog.Builder(this);
                     dialog.setTitle("确定购买?").setPositiveButton("确定", new DialogInterface.OnClickListener() {

@@ -1,10 +1,12 @@
 package com.my.easybuy.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -16,12 +18,14 @@ import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.LogUtil;
 import com.my.easybuy.Entity.GoodsDetail;
 import com.my.easybuy.R;
 import com.my.easybuy.adapter.ShopListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by Administrator on 2017/3/5 0005.
@@ -45,12 +49,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
         initView();
         initEvent();
     }
-
-    private void initEvent() {
-        tv_back.setOnClickListener(this);
-        iv_search.setOnClickListener(this);
-        refreshLayout.setOnRefreshListener(this);
-    }
+    
 
     @Override
     protected void onResume() {
@@ -85,6 +84,11 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
                 }
             });
         }
+        else{
+            adapter.setData(list);
+            adapter.notifyDataSetChanged();
+            Toast.makeText(this,"请先输入要搜索的内容...",Toast.LENGTH_SHORT).show();
+        }
         stopRefresh();
     }
 
@@ -104,6 +108,31 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
         lv.setAdapter(adapter);
     }
 
+
+    private void initEvent() {
+        tv_back.setOnClickListener(this);
+        iv_search.setOnClickListener(this);
+        refreshLayout.setOnRefreshListener(this);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent();
+                intent.setClass(SearchActivity.this,GoodsDetailActivity.class);
+                AVFile pic=list.get(position).getPic();
+                if (pic!=null){
+                    String url=pic.getUrl();
+                    intent.putExtra("url",url);
+                }
+                intent.putExtra("des",list.get(position).getDes());
+                intent.putExtra("price",list.get(position).getPrice());
+                intent.putExtra("objId",list.get(position).getObjId());
+                intent.putExtra("saleName",list.get(position).getSaleName());
+                startActivity(intent);
+            }
+        });
+
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()){

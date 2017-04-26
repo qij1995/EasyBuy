@@ -69,8 +69,8 @@ public class ShopCartFragment extends Fragment implements SwipeRefreshLayout.OnR
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        String objectId = list.get(position).getObjId();
-                                        AVQuery<AVObject> query = new AVQuery<AVObject>("GoodsDetail");
+                                        String objectId = list.get(position).getMyId();
+                                        AVQuery<AVObject> query = new AVQuery<AVObject>("ShopCartEntity");
                                         try {
                                             AVObject object = query.get(objectId);
                                             object.deleteInBackground();
@@ -109,6 +109,7 @@ public class ShopCartFragment extends Fragment implements SwipeRefreshLayout.OnR
 //            super.handleMessage(msg);
             switch (msg.what) {
                 case 100:
+//                    initData();
                     adapter.setData(list);
                     adapter.notifyDataSetChanged();
                     break;

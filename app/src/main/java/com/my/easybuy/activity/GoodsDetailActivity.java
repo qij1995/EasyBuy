@@ -141,7 +141,7 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
                     intent.putExtra("saleName",saleName);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(this,"请先去设置收货地址",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"请先选择收货地址",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.tv_shop_cart:

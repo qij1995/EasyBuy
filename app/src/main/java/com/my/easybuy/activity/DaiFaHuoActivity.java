@@ -50,6 +50,7 @@ public class DaiFaHuoActivity extends Activity implements View.OnClickListener,S
         query.include("user");
         query.whereEqualTo("user", AVUser.getCurrentUser());
         query.whereEqualTo("isFuKuan",true);
+        query.whereEqualTo("state","立即发货");
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> objects, AVException e) {
