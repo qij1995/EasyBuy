@@ -152,6 +152,7 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
                 object.put("price",price);
                 object.put("number",number3);
                 object.put("objId",objId);
+                object.put("car_state","未处理");
                 object.put("user",AVUser.getCurrentUser());
                 object.saveInBackground(new SaveCallback() {
                     @Override

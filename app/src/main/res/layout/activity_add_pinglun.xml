@@ -44,8 +44,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:text="提交"
+        android:text="立即提交"
         android:gravity="center"
         android:textSize="20sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/colorPrimary"/>
 </LinearLayout>

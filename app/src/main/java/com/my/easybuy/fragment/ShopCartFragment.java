@@ -135,6 +135,7 @@ public class ShopCartFragment extends Fragment implements SwipeRefreshLayout.OnR
         AVQuery<AVObject> query=new AVQuery<>("ShopCartEntity");
         query.include("user");
         query.whereEqualTo("user", AVUser.getCurrentUser());
+        query.whereEqualTo("car_state","未处理");
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> objects, AVException e) {

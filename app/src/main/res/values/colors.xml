@@ -10,5 +10,6 @@
     <color name="price_color">#fd4836</color>
     <color name="gray">#E6E4E5</color>
     <color name="mgray">#808080</color>
+    <color name="btn_color">#EB2A80</color>
 
 </resources>

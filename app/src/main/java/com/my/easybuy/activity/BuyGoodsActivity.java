@@ -101,6 +101,7 @@ public class BuyGoodsActivity extends Activity implements View.OnClickListener{
                             object.put("isFuKuan",true);
                             object.put("saleName",saleName);
                             object.put("state","立即发货");
+                            object.put("car_state","已处理");
                             object.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(AVException e) {
@@ -128,6 +129,7 @@ public class BuyGoodsActivity extends Activity implements View.OnClickListener{
                             object.put("saleName",saleName);
                             object.put("isFuKuan",false);
                             object.put("state","待付款");
+                            object.put("car_state","已处理");
                             object.saveInBackground();
 
                             dialog.dismiss();

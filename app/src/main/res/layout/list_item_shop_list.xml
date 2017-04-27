@@ -2,11 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginTop="14dp"
+        android:background="#cccccc" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
         <ImageView
             android:id="@+id/iv_goods"
             android:layout_marginTop="10dp"
@@ -29,7 +35,7 @@
                 android:ellipsize="end"
                 android:text="哈哈哈哈"
                 android:layout_marginRight="10dp"
-                android:textSize="16sp"/>
+                android:textSize="14sp"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/price_color"
-                    android:textSize="16sp"/>
+                    android:textSize="14sp"/>
 
             </RelativeLayout>
 
