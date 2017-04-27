@@ -130,7 +130,7 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
                 String number2=tv_number.getText().toString().trim();
                 if (!address.equals("请选择收货地址")){
                     intent=new Intent();
-                    intent.setClass(this,BuyGoodsActivity.class);
+                    intent.setClass(GoodsDetailActivity.this,BuyGoodsActivity.class);
                     intent.putExtra("url",url);
                     intent.putExtra("des",des);
                     intent.putExtra("price",price);
@@ -138,7 +138,7 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
                     intent.putExtra("address",address);
                     intent.putExtra("name",name);
                     intent.putExtra("phone",phone);
-                    intent.putExtra("saleName",saleName);
+//                    intent.putExtra("saleName",saleName);
                     startActivity(intent);
                 }else {
                     Toast.makeText(this,"请先选择收货地址",Toast.LENGTH_SHORT).show();
