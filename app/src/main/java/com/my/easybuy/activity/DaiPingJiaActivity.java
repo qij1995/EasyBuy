@@ -13,25 +13,25 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
 import com.my.easybuy.Entity.BuyGoodsEntity;
-import com.my.easybuy.adapter.MyBuyAdapter;
 import com.my.easybuy.R;
-import com.my.easybuy.adapter.MySendAdapter;
+import com.my.easybuy.adapter.MyEvaluateAdapter;
+import com.my.easybuy.adapter.MyReceiveAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class DaiFaHuoActivity extends Activity implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
+public class DaiPingJiaActivity extends Activity implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
     private TextView tv_back;
     private SwipeRefreshLayout refreshLayout;
     private ListView lv;
     private List<BuyGoodsEntity> list=new ArrayList<>();
-    private MySendAdapter adapter;
+    private MyEvaluateAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daifahuo);
+        setContentView(R.layout.activity_daipingjia);
 
         initView();
         initEvent();
@@ -51,7 +51,7 @@ public class DaiFaHuoActivity extends Activity implements View.OnClickListener,S
         query.include("user");
         query.whereEqualTo("user", AVUser.getCurrentUser());
         query.whereEqualTo("isFuKuan",true);
-        query.whereEqualTo("state","立即发货");
+        query.whereEqualTo("state","待评价");
 //        query.whereEqualTo("car_state","已处理");
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
@@ -87,7 +87,7 @@ public class DaiFaHuoActivity extends Activity implements View.OnClickListener,S
         tv_back= (TextView) findViewById(R.id.tv_back);
         refreshLayout= (SwipeRefreshLayout) findViewById(R.id.refresh);
         lv= (ListView) findViewById(R.id.lv);
-        adapter=new MySendAdapter(list,this);
+        adapter=new MyEvaluateAdapter(list,this);
         lv.setAdapter(adapter);
     }
 

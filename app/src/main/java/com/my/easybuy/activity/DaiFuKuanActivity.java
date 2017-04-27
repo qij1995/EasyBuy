@@ -51,7 +51,7 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
         query.whereEqualTo("user", AVUser.getCurrentUser());
         query.whereEqualTo("isFuKuan",false);
         query.whereEqualTo("state","待付款");
-        query.whereEqualTo("car_state","已处理");
+//        query.whereEqualTo("car_state","已处理");
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> objects, AVException e) {

@@ -59,6 +59,8 @@
         <activity android:name=".activity.AddPingLunActivity" />
         <activity android:name=".activity.DaiFaHuoActivity" />
         <activity android:name=".activity.DaiFuKuanActivity" />
+        <activity android:name=".activity.DaiShouHuoActivity" />
+        <activity android:name=".activity.DaiPingJiaActivity" />
         <activity android:name=".activity.EditGoodsActivity" />
         <activity android:name=".activity.GuideActivity"></activity>
     </application>

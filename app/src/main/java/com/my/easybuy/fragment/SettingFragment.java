@@ -14,9 +14,11 @@ import android.widget.TextView;
 import com.avos.avoscloud.AVUser;
 import com.my.easybuy.activity.DaiFaHuoActivity;
 import com.my.easybuy.activity.DaiFuKuanActivity;
+import com.my.easybuy.activity.DaiShouHuoActivity;
 import com.my.easybuy.activity.LoginActivity;
 import com.my.easybuy.activity.PersonActivity;
 import com.my.easybuy.R;
+import com.my.easybuy.activity.DaiPingJiaActivity;
 
 
 public class SettingFragment extends Fragment implements View.OnClickListener{
@@ -52,7 +54,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
     private void initView() {
         ll_daifukuan= (LinearLayout) view.findViewById(R.id.ll_daifukuan);
         ll_daifahuo= (LinearLayout) view.findViewById(R.id.ll_daifahuo);
-        ll_daishouhuo= (LinearLayout) view.findViewById(R.id.ll_daifahuo);
+        ll_daishouhuo= (LinearLayout) view.findViewById(R.id.ll_daishouhuo);
         ll_daipingjia= (LinearLayout) view.findViewById(R.id.ll_daipingjia);
         rl_person= (RelativeLayout) view.findViewById(R.id.rl_person);
         rl_about= (RelativeLayout) view.findViewById(R.id.rl_about);
@@ -74,8 +76,14 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.ll_daishouhuo:
+                intent=new Intent();
+                intent.setClass(getActivity(), DaiShouHuoActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_daipingjia:
+                intent=new Intent();
+                intent.setClass(getActivity(), DaiPingJiaActivity.class);
+                startActivity(intent);
                 break;
             case R.id.rl_person:
                 intent = new Intent();
