@@ -1,6 +1,7 @@
 package com.my.easybuy.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
@@ -18,6 +19,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.my.easybuy.Entity.BuyGoodsEntity;
 import com.my.easybuy.R;
+import com.my.easybuy.activity.PingLunActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -33,6 +35,8 @@ import static com.my.easybuy.R.id.rl_receive;
 public class MyEvaluateAdapter extends BaseAdapter {
     private List<BuyGoodsEntity> list;
     private Context context;
+//    private String objId;
+//    private String saleName;
 
     public MyEvaluateAdapter(List<BuyGoodsEntity> list, Context context) {
         this.list = list;
@@ -75,9 +79,11 @@ public class MyEvaluateAdapter extends BaseAdapter {
         ImageLoader.getInstance().displayImage(list.get(position).getUrl(),iv,options);
         tv_des.setText(list.get(position).getDes());
         tv_price.setText("¥"+list.get(position).getPrice());
-        tv_number.setText(list.get(position).getObjId());
+        tv_number.setText(list.get(position).getObjectId());
         tv_num.setText("x"+list.get(position).getNumber());
+        final String objectId=list.get(position).getObjectId();
         final String objId=list.get(position).getObjId();
+        final String saleName=list.get(position).getSaleName();
         final int positions=position;
 
         rl_evaluate.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +95,7 @@ public class MyEvaluateAdapter extends BaseAdapter {
                     public void run() {
                         AVQuery<AVObject> query = new AVQuery<>("BuyGoodsEntity");
                         try {
-                            AVObject object = query.get(objId);
+                            AVObject object = query.get(objectId);
                             object.put("state","已完成");
                             object.saveInBackground();
 //                                    Message message = new Message();
@@ -100,6 +106,11 @@ public class MyEvaluateAdapter extends BaseAdapter {
                         }
                     }
                 }).start();
+                Intent intent=new Intent();
+                intent.setClass(context,PingLunActivity.class);
+                intent.putExtra("objId",objId);
+                intent.putExtra("saleName",saleName);
+                context.startActivity(intent);
             }
         });
         return view;

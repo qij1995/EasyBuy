@@ -39,6 +39,7 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
     private String name;
     private String phone;
     private String objId;
+    private String objectId;
     private TextView tv_pinglun;
     private String saleName;
 
@@ -51,6 +52,7 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
         des=getIntent().getStringExtra("des");
         price=getIntent().getStringExtra("price");
         objId=getIntent().getStringExtra("objId");
+        objectId=getIntent().getStringExtra("objectId");
         saleName=getIntent().getStringExtra("saleName");
         initView();
         initEvent();
@@ -136,9 +138,11 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
                     intent.putExtra("price",price);
                     intent.putExtra("number",number2);
                     intent.putExtra("address",address);
+                    intent.putExtra("objId",objId);
+                    intent.putExtra("objectId",objectId);
                     intent.putExtra("name",name);
                     intent.putExtra("phone",phone);
-//                    intent.putExtra("saleName",saleName);
+                    intent.putExtra("saleName",name);
                     startActivity(intent);
                 }else {
                     Toast.makeText(this,"请先选择收货地址",Toast.LENGTH_SHORT).show();
@@ -152,6 +156,8 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
                 object.put("price",price);
                 object.put("number",number3);
                 object.put("objId",objId);
+                object.put("saleName",name);
+//                object.put("objectId",objectId);
                 object.put("car_state","未处理");
                 object.put("user",AVUser.getCurrentUser());
                 object.saveInBackground(new SaveCallback() {
@@ -166,9 +172,9 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
                 break;
             case R.id.tv_pinglun:
                 intent=new Intent();
-                intent.setClass(this,PingLunActivity.class);
+                intent.setClass(this,DetailPingLunActivity.class);
                 intent.putExtra("objId",objId);
-                intent.putExtra("saleName",saleName);
+                intent.putExtra("saleName",name);
                 startActivity(intent);
                 break;
         }

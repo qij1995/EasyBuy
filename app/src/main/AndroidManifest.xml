@@ -47,7 +47,9 @@
         <activity android:name=".activity.AddressListActivity" />
         <activity android:name=".activity.AddAddressActivity" />
         <activity android:name=".activity.BuyGoodsActivity" />
+        <activity android:name=".activity.PayActivity" />
         <activity android:name=".activity.ShopCartAddressActivity" />
+        <activity android:name=".activity.PayAddressActivity" />
         <activity android:name=".activity.PersonActivity" />
         <activity
             android:name=".activity.SubmitImageActivity"
@@ -56,6 +58,7 @@
         <activity android:name=".activity.MyBuyActivity" />
         <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.PingLunActivity" />
+        <activity android:name=".activity.DetailPingLunActivity" />
         <activity android:name=".activity.AddPingLunActivity" />
         <activity android:name=".activity.DaiFaHuoActivity" />
         <activity android:name=".activity.DaiFuKuanActivity" />

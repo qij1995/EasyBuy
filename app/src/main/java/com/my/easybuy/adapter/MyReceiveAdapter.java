@@ -75,9 +75,9 @@ public class MyReceiveAdapter extends BaseAdapter {
         ImageLoader.getInstance().displayImage(list.get(position).getUrl(),iv,options);
         tv_des.setText(list.get(position).getDes());
         tv_price.setText("¥"+list.get(position).getPrice());
-        tv_number.setText(list.get(position).getObjId());
+        tv_number.setText(list.get(position).getObjectId());
         tv_num.setText("x"+list.get(position).getNumber());
-        final String objId=list.get(position).getObjId();
+        final String objectId=list.get(position).getObjectId();
         final int positions=position;
 
         rl_receive.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ public class MyReceiveAdapter extends BaseAdapter {
                     public void run() {
                         AVQuery<AVObject> query = new AVQuery<>("BuyGoodsEntity");
                         try {
-                            AVObject object = query.get(objId);
+                            AVObject object = query.get(objectId);
                             object.put("state","待评价");
                             object.saveInBackground();
                                     Message message = new Message();

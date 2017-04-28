@@ -12,15 +12,17 @@ public class GoodsDetail {
     private String price;
     private String type;
     private String objId;
+    private String objectId;
     private String saleName;
 
 
-    public GoodsDetail(AVFile pic, String des, String price, String type , String objId, String saleName) {
+    public GoodsDetail(AVFile pic, String des, String price, String type , String objId, String saleName,String objectId) {
         this.pic = pic;
         this.des = des;
         this.price = price;
         this.type=type;
         this.objId = objId;
+        this.objectId = objectId;
         this.saleName=saleName;
     }
 
@@ -71,4 +73,12 @@ public class GoodsDetail {
     public void setObjId(String objId) {
         this.objId = objId;
     }
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
 }

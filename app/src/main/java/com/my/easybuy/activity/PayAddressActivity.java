@@ -25,32 +25,28 @@ import java.util.List;
  * Created by user999 on 2017/3/2.
  */
 
-public class ShopCartAddressActivity extends Activity implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
+public class PayAddressActivity extends Activity implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
     private String url;
     private String des;
     private String price;
     private String number;
-    private String car_objectId;
-    private String car_objId;
-    private String car_saleName;
+    private String pay_objectId;
     private TextView tv_back;
     private SwipeRefreshLayout refreshLayout;
     private ListView lv;
     private TextView tv_add_address;
     private List<AddressEntity> list=new ArrayList<>();
     private AddressAdapter adapter;
-
+//TODO
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_address_list);
+        setContentView(R.layout.activity_pay_address_list);
         url=getIntent().getStringExtra("url");
         des=getIntent().getStringExtra("des");
         price=getIntent().getStringExtra("price");
         number=getIntent().getStringExtra("number");
-        car_objectId=getIntent().getStringExtra("car_objectId");
-        car_objId=getIntent().getStringExtra("car_objId");
-        car_saleName=getIntent().getStringExtra("car_saleName");
+        pay_objectId=getIntent().getStringExtra("pay_objectId");
 
         initView();
         initEvent();
@@ -98,14 +94,12 @@ public class ShopCartAddressActivity extends Activity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent();
-                intent.setClass(ShopCartAddressActivity.this,BuyGoodsActivity.class);
+                intent.setClass(PayAddressActivity.this,PayActivity.class);
                 intent.putExtra("url",url);
                 intent.putExtra("des",des);
                 intent.putExtra("price",price);
                 intent.putExtra("number",number);
-                intent.putExtra("car_objectId",car_objectId);
-                intent.putExtra("car_objId",car_objId);
-                intent.putExtra("car_saleName",list.get(position).getName());
+                intent.putExtra("pay_objectId",pay_objectId);
                 intent.putExtra("address",list.get(position).getAddress());
                 intent.putExtra("name",list.get(position).getName());
                 intent.putExtra("phone",list.get(position).getPhone());

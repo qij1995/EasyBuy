@@ -179,7 +179,7 @@
         <TextView
             android:id="@+id/tv_pinglun"
             android:layout_width="0dp"
-            android:text="用户评价"
+            android:text="查看用户评价"
             android:textColor="@color/white"
             android:gravity="center"
             android:layout_height="match_parent"

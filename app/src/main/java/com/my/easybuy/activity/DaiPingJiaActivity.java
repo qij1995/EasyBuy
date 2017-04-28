@@ -65,9 +65,11 @@ public class DaiPingJiaActivity extends Activity implements View.OnClickListener
                         String number=object.getString("number");
                         String phone=object.getString("phone");
                         String name=object.getString("name");
-                        String objId=object.getObjectId();
+                        String objId=object.getString("objId");
+                        String saleName=object.getString("saleName");
+                        String objectId=object.getObjectId();
 
-                        list.add(new BuyGoodsEntity(AVUser.getCurrentUser(),url,des,price,address,number,phone,name,objId));
+                        list.add(new BuyGoodsEntity(AVUser.getCurrentUser(),url,des,price,address,number,phone,name,objId,saleName,objectId));
 
                     }
                     adapter.setData(list);

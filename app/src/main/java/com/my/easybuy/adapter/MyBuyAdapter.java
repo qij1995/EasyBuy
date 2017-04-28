@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.my.easybuy.Entity.BuyGoodsEntity;
 import com.my.easybuy.R;
+import com.my.easybuy.activity.PayAddressActivity;
 import com.my.easybuy.activity.ShopCartAddressActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -29,7 +30,7 @@ import static com.my.easybuy.R.id.rl_pay;
 public class MyBuyAdapter extends BaseAdapter {
     private List<BuyGoodsEntity> list;
     private Context context;
-
+//TODO
     public MyBuyAdapter(List<BuyGoodsEntity> list, Context context) {
         this.list = list;
         this.context = context;
@@ -71,12 +72,13 @@ public class MyBuyAdapter extends BaseAdapter {
             ImageLoader.getInstance().displayImage(list.get(position).getUrl(),iv,options);
         tv_des.setText(list.get(position).getDes());
         tv_price.setText("¥"+list.get(position).getPrice());
-        tv_number.setText(list.get(position).getObjId());
+        tv_number.setText(list.get(position).getObjectId());
         tv_num.setText("x"+list.get(position).getNumber());
         final String des=list.get(position).getDes();
         final String price=list.get(position).getPrice();
         final String number=list.get(position).getNumber();
         final String url=list.get(position).getUrl();
+        final String objectId=list.get(position).getObjectId();
 
         rl_pay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +88,8 @@ public class MyBuyAdapter extends BaseAdapter {
                 intent.putExtra("des",des);
                 intent.putExtra("price",price);
                 intent.putExtra("number",number);
-                intent.setClass(context, ShopCartAddressActivity.class);
+                intent.putExtra("pay_objectId",objectId);
+                intent.setClass(context, PayAddressActivity.class);
                 context.startActivity(intent);
             }
         });

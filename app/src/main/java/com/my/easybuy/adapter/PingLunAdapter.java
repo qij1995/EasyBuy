@@ -56,7 +56,6 @@ public class PingLunAdapter extends BaseAdapter {
         TextView tv_my_content= (TextView) view.findViewById(R.id.tv_my_content);
         TextView tv_sale_name= (TextView) view.findViewById(R.id.tv_sale_name);
         TextView tv_sale_content= (TextView) view.findViewById(R.id.tv_sale_content);
-
         RelativeLayout rl_my= (RelativeLayout) view.findViewById(R.id.rl_my);
 
         tv_my_name.setText(list.get(position).getUser().getUsername()+":");

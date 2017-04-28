@@ -13,16 +13,20 @@ public class ShopCartEntity {
     private String price;
     private String number;
     private String objId;
+    private String objectId;
+    private String saleName;
     private String myId;
 
-    public ShopCartEntity(AVUser user, String url, String des, String price, String number, String objId, String myId) {
+    public ShopCartEntity(AVUser user, String url, String des, String price, String number, String objId, String myId,String objectId,String saleName) {
         this.user = user;
         this.url = url;
         this.des = des;
         this.price = price;
         this.number = number;
         this.objId = objId;
+        this.objectId = objectId;
         this.myId=myId;
+        this.saleName=saleName;
     }
 
     public String getMyId() {
@@ -79,5 +83,21 @@ public class ShopCartEntity {
 
     public void setObjId(String objId) {
         this.objId = objId;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
+    public String getSaleName() {
+        return saleName;
+    }
+
+    public void setSaleName(String saleName) {
+        this.saleName = saleName;
     }
 }

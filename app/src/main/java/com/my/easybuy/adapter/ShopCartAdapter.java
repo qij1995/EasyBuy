@@ -52,15 +52,15 @@ public class ShopCartAdapter extends BaseAdapter {
 
     }
 
-    public void setData(List<ShopCartEntity> list){
-        this.list=list;
+    public void setData(List<ShopCartEntity> list) {
+        this.list = list;
     }
 
     @Override
     public int getCount() {
-        if (list!=null){
+        if (list != null) {
             return list.size();
-        }else {
+        } else {
             return 0;
         }
     }
@@ -77,38 +77,41 @@ public class ShopCartAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View view= LayoutInflater.from(context).inflate(R.layout.list_item_shop_cart,null);
-        ImageView iv_goods= (ImageView) view.findViewById(R.id.iv_goods);
-        TextView tv_des= (TextView) view.findViewById(R.id.tv_des);
-        TextView tv_price= (TextView) view.findViewById(R.id.tv_price);
-        TextView tv_buy= (TextView) view.findViewById(R.id.tv_buy);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_shop_cart, null);
+        ImageView iv_goods = (ImageView) view.findViewById(R.id.iv_goods);
+        TextView tv_des = (TextView) view.findViewById(R.id.tv_des);
+        TextView tv_price = (TextView) view.findViewById(R.id.tv_price);
+        TextView tv_buy = (TextView) view.findViewById(R.id.tv_buy);
         TextView tv_num = (TextView) view.findViewById(R.id.tv_num);
         RelativeLayout rl_edit = (RelativeLayout) view.findViewById(R.id.rl_edit);
         RelativeLayout rl_delet = (RelativeLayout) view.findViewById(R.id.rl_delet);
 
 
-        final String des=list.get(position).getDes();
-        final String price=list.get(position).getPrice();
-        final String number=list.get(position).getNumber();
-        final String myId=list.get(position).getMyId();
-        final int positions=position;
+        final String des = list.get(position).getDes();
+        final String price = list.get(position).getPrice();
+        final String number = list.get(position).getNumber();
+        final String myId = list.get(position).getMyId();
+        final String url = list.get(position).getUrl();
+        final String objectId = list.get(position).getObjectId();
+        final String objId = list.get(position).getObjId();
+        final String saleName = list.get(position).getSaleName();
+        final int positions = position;
         tv_des.setText(des);
-        tv_price.setText("¥"+price);
-        tv_num.setText("x"+number);
-        final String url=list.get(position).getUrl();
-        ImageLoader.getInstance().displayImage(url,iv_goods,options);
+        tv_price.setText("¥" + price);
+        tv_num.setText("x" + number);
+        ImageLoader.getInstance().displayImage(url, iv_goods, options);
 
 //        String objId=list.get(position).getObjId();
 
         rl_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.putExtra("url",url);
-                intent.putExtra("des",des);
-                intent.putExtra("price",price);
-                intent.putExtra("number",number);
-                intent.putExtra("myId",myId);
+                Intent intent = new Intent();
+                intent.putExtra("url", url);
+                intent.putExtra("des", des);
+                intent.putExtra("price", price);
+                intent.putExtra("number", number);
+                intent.putExtra("myId", myId);
                 intent.setClass(context, EditGoodsActivity.class);
                 context.startActivity(intent);
             }
@@ -126,7 +129,7 @@ public class ShopCartAdapter extends BaseAdapter {
                             @Override
                             public void run() {
                                 String objectId = myId;
-                                AVQuery<AVObject> query = new AVQuery<AVObject>("ShopCartEntity");
+                                AVQuery<AVObject> query = new AVQuery<>("ShopCartEntity");
                                 try {
                                     AVObject object = query.get(objectId);
                                     object.deleteInBackground();
@@ -153,20 +156,24 @@ public class ShopCartAdapter extends BaseAdapter {
         tv_buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.putExtra("url",url);
-                intent.putExtra("des",des);
-                intent.putExtra("price",price);
-                intent.putExtra("number",number);
+                Intent intent = new Intent();
+                intent.putExtra("url", url);
+                intent.putExtra("des", des);
+                intent.putExtra("car_objectId", objectId);
+                intent.putExtra("car_objId", objId);
+                intent.putExtra("car_saleName", saleName);
+                intent.putExtra("price", price);
+                intent.putExtra("number", number);
                 intent.setClass(context, ShopCartAddressActivity.class);
                 context.startActivity(intent);
+
             }
         });
 
         return view;
     }
 
-    public void remove(int position){
+    public void remove(int position) {
         list.remove(position);
         this.notifyDataSetChanged();
     }

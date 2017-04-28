@@ -57,50 +57,50 @@ public class ShopCartFragment extends Fragment implements SwipeRefreshLayout.OnR
     private void initEvent() {
         refreshLayout.setOnRefreshListener(this);
 
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                AlertDialog.Builder dialog=new AlertDialog.Builder(getActivity());
-                dialog.setItems(new String[]{"删除", "编辑"}, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case 0:
-                                new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        String objectId = list.get(position).getMyId();
-                                        AVQuery<AVObject> query = new AVQuery<AVObject>("ShopCartEntity");
-                                        try {
-                                            AVObject object = query.get(objectId);
-                                            object.deleteInBackground();
-                                            list.remove(position);
-                                            Message message = new Message();
-                                            message.what = 100;
-                                            handler.sendMessage(message);
-                                        } catch (AVException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }).start();
-                                break;
-                            case 1:
-                                Intent intent=new Intent();
-                                intent.putExtra("url",list.get(position).getUrl());
-                                intent.putExtra("des",list.get(position).getDes());
-                                intent.putExtra("price",list.get(position).getPrice());
-                                intent.putExtra("number",list.get(position).getNumber());
-                                intent.putExtra("myId",list.get(position).getMyId());
-                                intent.setClass(getActivity(), EditGoodsActivity.class);
-                                startActivity(intent);
-                                break;
-                        }
-                    }
-                }).show();
-
-                return true;
-            }
-        });
+//        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+//                AlertDialog.Builder dialog=new AlertDialog.Builder(getActivity());
+//                dialog.setItems(new String[]{"删除", "编辑"}, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        switch (which){
+//                            case 0:
+//                                new Thread(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        String objectId = list.get(position).getMyId();
+//                                        AVQuery<AVObject> query = new AVQuery<AVObject>("ShopCartEntity");
+//                                        try {
+//                                            AVObject object = query.get(objectId);
+//                                            object.deleteInBackground();
+//                                            list.remove(position);
+//                                            Message message = new Message();
+//                                            message.what = 100;
+//                                            handler.sendMessage(message);
+//                                        } catch (AVException e) {
+//                                            e.printStackTrace();
+//                                        }
+//                                    }
+//                                }).start();
+//                                break;
+//                            case 1:
+//                                Intent intent=new Intent();
+//                                intent.putExtra("url",list.get(position).getUrl());
+//                                intent.putExtra("des",list.get(position).getDes());
+//                                intent.putExtra("price",list.get(position).getPrice());
+//                                intent.putExtra("number",list.get(position).getNumber());
+//                                intent.putExtra("myId",list.get(position).getMyId());
+//                                intent.setClass(getActivity(), EditGoodsActivity.class);
+//                                startActivity(intent);
+//                                break;
+//                        }
+//                    }
+//                }).show();
+//
+//                return true;
+//            }
+//        });
     }
 
     private Handler handler = new Handler() {
@@ -146,8 +146,10 @@ public class ShopCartFragment extends Fragment implements SwipeRefreshLayout.OnR
                         String price=object.getString("price");
                         String number=object.getString("number");
                         String objId=object.getString("objId");
+                        String saleName=object.getString("saleName");
+                        String objectId=object.getObjectId();
                         String myId=object.getObjectId();
-                        list.add(new ShopCartEntity(AVUser.getCurrentUser(),url,des,price,number,objId,myId));
+                        list.add(new ShopCartEntity(AVUser.getCurrentUser(),url,des,price,number,objId,myId,objectId,saleName));
                     }
                     adapter.setData(list);
                     adapter.notifyDataSetChanged();

@@ -16,9 +16,11 @@ public class BuyGoodsEntity {
     private String phone;
     private String name;
     private String objId;
+    private String objectId;
+    private String saleName;
 
 
-    public BuyGoodsEntity(AVUser user, String url, String des, String price, String address, String number, String phone, String name, String objId) {
+    public BuyGoodsEntity(AVUser user, String url, String des, String price, String address, String number, String phone, String name, String objId,String saleName,String objectId) {
         this.user = user;
         this.url = url;
         this.des = des;
@@ -28,6 +30,8 @@ public class BuyGoodsEntity {
         this.phone = phone;
         this.name = name;
         this.objId = objId;
+        this.saleName = saleName;
+        this.objectId = objectId;
     }
 
 
@@ -101,5 +105,21 @@ public class BuyGoodsEntity {
 
     public void setObjId(String objId) {
         this.objId = objId;
+    }
+
+    public String getSaleName() {
+        return saleName;
+    }
+
+    public void setSaleName(String saleName) {
+        this.saleName = saleName;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 }

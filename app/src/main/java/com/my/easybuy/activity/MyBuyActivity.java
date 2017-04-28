@@ -65,8 +65,10 @@ public class MyBuyActivity extends Activity implements View.OnClickListener,Swip
                         String phone=object.getString("phone");
                         String name=object.getString("name");
                         String objId=object.getObjectId();
+                        String saleName=object.getString("saleName");
+                        String objectId=object.getString("objectId");
 
-                        list.add(new BuyGoodsEntity(AVUser.getCurrentUser(),url,des,price,address,number,phone,name,objId));
+                        list.add(new BuyGoodsEntity(AVUser.getCurrentUser(),url,des,price,address,number,phone,name,objId,saleName,objectId));
 
                     }
                     adapter.setData(list);

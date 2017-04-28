@@ -51,7 +51,7 @@ public class DaiFaHuoActivity extends Activity implements View.OnClickListener,S
         query.include("user");
         query.whereEqualTo("user", AVUser.getCurrentUser());
         query.whereEqualTo("isFuKuan",true);
-        query.whereEqualTo("state","立即发货");
+        query.whereEqualTo("state","待发货");
 //        query.whereEqualTo("car_state","已处理");
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
@@ -65,9 +65,11 @@ public class DaiFaHuoActivity extends Activity implements View.OnClickListener,S
                         String number=object.getString("number");
                         String phone=object.getString("phone");
                         String name=object.getString("name");
-                        String objId=object.getObjectId();
+                        String objId=object.getString("objId");
+                        String saleName=object.getString("saleName");
+                        String objectId=object.getObjectId();
 
-                        list.add(new BuyGoodsEntity(AVUser.getCurrentUser(),url,des,price,address,number,phone,name,objId));
+                        list.add(new BuyGoodsEntity(AVUser.getCurrentUser(),url,des,price,address,number,phone,name,objId,saleName,objectId));
 
                     }
                     adapter.setData(list);

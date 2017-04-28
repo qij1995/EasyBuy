@@ -74,9 +74,10 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
                             String des=object.getString("des");
                             String price=object.getString("price");
                             String type=object.getString("type");
-                            String objId=object.getObjectId();
+                            String objId=object.getString("objId");
+                            String objectId=object.getString("objectId");
                             String saleName=object.getString("saleName");
-                            list.add(new GoodsDetail(pic,des,price,type,objId,saleName));
+                            list.add(new GoodsDetail(pic,des,price,type,objId,saleName,objectId));
                         }
                         adapter.setData(list);
                         adapter.notifyDataSetChanged();
@@ -127,6 +128,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
                 intent.putExtra("des",list.get(position).getDes());
                 intent.putExtra("price",list.get(position).getPrice());
                 intent.putExtra("objId",list.get(position).getObjId());
+                intent.putExtra("objectId",list.get(position).getObjectId());
                 intent.putExtra("saleName",list.get(position).getSaleName());
                 startActivity(intent);
             }
