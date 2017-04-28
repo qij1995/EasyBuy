@@ -15,7 +15,6 @@ import com.avos.avoscloud.FindCallback;
 import com.my.easybuy.Entity.BuyGoodsEntity;
 import com.my.easybuy.R;
 import com.my.easybuy.adapter.MyReceiveAdapter;
-import com.my.easybuy.adapter.MySendAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +49,7 @@ public class DaiShouHuoActivity extends Activity implements View.OnClickListener
         query.orderByDescending("createAt");
         query.include("user");
         query.whereEqualTo("user", AVUser.getCurrentUser());
-        query.whereEqualTo("isFuKuan",true);
+//        query.whereEqualTo("isFuKuan",true);
         query.whereEqualTo("state","待收货");
 //        query.whereEqualTo("car_state","已处理");
         query.findInBackground(new FindCallback<AVObject>() {

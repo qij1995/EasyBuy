@@ -115,7 +115,7 @@ public class BuyGoodsActivity extends Activity implements View.OnClickListener {
                                 object.put("objId", car_objId);
                             }
 //                            object.put("objectId",objectId);
-                            object.put("isFuKuan", true);
+//                            object.put("isFuKuan", true);
                             if (saleName != null) {
                                 object.put("saleName", saleName);
                             } else {
@@ -174,25 +174,30 @@ public class BuyGoodsActivity extends Activity implements View.OnClickListener {
                             } else {
                                 object.put("saleName", car_saleName);
                             }
-                            object.put("isFuKuan", false);
+//                            object.put("isFuKuan", false);
                             object.put("state", "待付款");
-                            object.saveInBackground();
-                            new Thread(new Runnable() {
+                            object.saveInBackground(new SaveCallback() {
                                 @Override
-                                public void run() {
-                                    AVQuery<AVObject> query = new AVQuery<AVObject>("ShopCartEntity");
-                                    try {
-                                        AVObject object = query.get(car_objectId);
-                                        object.put("car_state", "已处理");
-                                        object.saveInBackground();
-                                    } catch (AVException e) {
-                                        e.printStackTrace();
-                                    }
+                                public void done(AVException e) {
+                                        new Thread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                AVQuery<AVObject> query = new AVQuery<AVObject>("ShopCartEntity");
+                                                try {
+                                                    AVObject object = query.get(car_objectId);
+                                                    object.put("car_state", "已处理");
+                                                    object.put("car_objId", car_objId);
+                                                    object.put("car_saleName", car_saleName);
+                                                    object.saveInBackground();
+                                                } catch (AVException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        }).start();
+                                        Toast.makeText(BuyGoodsActivity.this, "请尽快付款！", Toast.LENGTH_SHORT).show();
+                                        finish();
                                 }
-                            }).start();
-                            dialog.dismiss();
-                            Toast.makeText(BuyGoodsActivity.this, "请尽快付款！", Toast.LENGTH_SHORT).show();
-                            finish();
+                            });
                         }
                     }).setCancelable(true).show();
 

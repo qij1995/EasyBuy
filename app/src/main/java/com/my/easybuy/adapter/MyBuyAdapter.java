@@ -14,14 +14,11 @@ import android.widget.TextView;
 import com.my.easybuy.Entity.BuyGoodsEntity;
 import com.my.easybuy.R;
 import com.my.easybuy.activity.PayAddressActivity;
-import com.my.easybuy.activity.ShopCartAddressActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 import java.util.List;
-
-import static com.my.easybuy.R.id.rl_pay;
 
 /**
  * Created by user999 on 2017/2/27.
@@ -30,7 +27,7 @@ import static com.my.easybuy.R.id.rl_pay;
 public class MyBuyAdapter extends BaseAdapter {
     private List<BuyGoodsEntity> list;
     private Context context;
-//TODO
+
     public MyBuyAdapter(List<BuyGoodsEntity> list, Context context) {
         this.list = list;
         this.context = context;
@@ -69,7 +66,7 @@ public class MyBuyAdapter extends BaseAdapter {
         TextView tv_num = (TextView) view.findViewById(R.id.tv_num);
         RelativeLayout rl_pay = (RelativeLayout) view.findViewById(R.id.rl_pay);
 
-            ImageLoader.getInstance().displayImage(list.get(position).getUrl(),iv,options);
+        ImageLoader.getInstance().displayImage(list.get(position).getUrl(),iv,options);
         tv_des.setText(list.get(position).getDes());
         tv_price.setText("¥"+list.get(position).getPrice());
         tv_number.setText(list.get(position).getObjectId());

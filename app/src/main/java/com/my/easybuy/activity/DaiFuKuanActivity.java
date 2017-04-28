@@ -31,7 +31,6 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daifukuan);
-
         initView();
         initEvent();
     }
@@ -42,7 +41,11 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
         startRefresh();
         initData();
     }
-    //TODO
+
+    @Override
+    public void onRefresh() {
+        initData();
+    }
 
     private void initData() {
         list.clear();
@@ -50,7 +53,7 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
         query.orderByDescending("createAt");
         query.include("user");
         query.whereEqualTo("user", AVUser.getCurrentUser());
-        query.whereEqualTo("isFuKuan",false);
+//        query.whereEqualTo("isFuKuan",false);
         query.whereEqualTo("state","待付款");
 //        query.whereEqualTo("car_state","已处理");
         query.findInBackground(new FindCallback<AVObject>() {
@@ -121,8 +124,4 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
         }
     }
 
-    @Override
-    public void onRefresh() {
-        initData();
-    }
 }
