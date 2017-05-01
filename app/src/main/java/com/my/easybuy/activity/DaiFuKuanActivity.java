@@ -3,6 +3,7 @@ package com.my.easybuy.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,8 +14,8 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
 import com.my.easybuy.Entity.BuyGoodsEntity;
-import com.my.easybuy.adapter.MyBuyAdapter;
 import com.my.easybuy.R;
+import com.my.easybuy.adapter.MyBuyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,16 +39,19 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
     @Override
     protected void onResume() {
         super.onResume();
+//        Log.e("onResume","OnResume有作用");
         startRefresh();
         initData();
     }
 
     @Override
     public void onRefresh() {
+        Log.e("onRefresh","onRefresh有作用");
         initData();
     }
 
     private void initData() {
+        Log.e("initData","initData");
         list.clear();
         AVQuery<AVObject> query=new AVQuery<>("BuyGoodsEntity");
         query.orderByDescending("createAt");
@@ -77,6 +81,9 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
                     }
                     adapter.setData(list);
                     adapter.notifyDataSetChanged();
+                }else {
+                    adapter.setData(list);
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
@@ -86,6 +93,7 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
     private void initEvent() {
         tv_back.setOnClickListener(this);
         refreshLayout.setOnRefreshListener(this);
+
     }
 
     private void initView() {
@@ -109,6 +117,7 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
      * 开始刷新
      */
     public void startRefresh(){
+        Log.e("startRefresh","startRefresh有作用");
         refreshLayout.setRefreshing(false);
         refreshLayout.setColorSchemeResources(R.color.colorPrimary);
         refreshLayout.setProgressViewOffset(false, 0, 50);

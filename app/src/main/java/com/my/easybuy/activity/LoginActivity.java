@@ -31,9 +31,11 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     private void initView() {
         TextView btn_login = (TextView) findViewById(R.id.tv_login);
-        btn_login.setOnClickListener(this);
         TextView tv_zhuce = (TextView)findViewById(R.id.tv_register);
+        TextView tv_forget = (TextView)findViewById(R.id.tv_forget);
+        btn_login.setOnClickListener(this);
         tv_zhuce.setOnClickListener(this);
+        tv_forget.setOnClickListener(this);
         et_name = (EditText)findViewById(R.id.et_name);
         et_pwd = (EditText)findViewById(R.id.et_pwd);
     }
@@ -47,6 +49,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.tv_register:
                 Register();
+                break;
+            case R.id.tv_forget:
+                Forget();
                 break;
         }
     }
@@ -88,6 +93,11 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private void Register() {
         Intent intent = new Intent();
         intent.setClass(context, RegisterActivity.class);
+        startActivity(intent);
+    }
+    private void Forget() {
+        Intent intent = new Intent();
+        intent.setClass(context, ForgetActivity.class);
         startActivity(intent);
     }
 

@@ -39,6 +39,7 @@ public class PersonActivity extends Activity implements View.OnClickListener {
     private CustomDialog.Builder builder;
     private EditText input;
     private TextView tv_phone;
+    private TextView tv_email;
     private static final int Take_Photo = 0;
     private ImageView iv_infopic;
 
@@ -96,6 +97,7 @@ public class PersonActivity extends Activity implements View.OnClickListener {
     private void initView() {
         TextView back = (TextView) findViewById(R.id.back);
         tv_phone = (TextView) findViewById(R.id.tv_phone);
+        tv_email = (TextView) findViewById(R.id.tv_email);
         iv_infopic = (ImageView) findViewById(R.id.iv_infopic);
         TextView tv_name = (TextView) findViewById(R.id.tv_name);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
@@ -106,7 +108,16 @@ public class PersonActivity extends Activity implements View.OnClickListener {
             tv_sex.setText("未设置");
         }
         back.setOnClickListener(this);
+        if (AVUser.getCurrentUser().getMobilePhoneNumber() != null){
         tv_phone.setText(AVUser.getCurrentUser().getMobilePhoneNumber() + "");
+        }else{
+            tv_phone.setText("未绑定手机号");
+        }
+        if (AVUser.getCurrentUser().getEmail() != null){
+            tv_email.setText(AVUser.getCurrentUser().getEmail() + "");
+        }else{
+            tv_email.setText("未绑定邮箱");
+        }
         tv_name.setText(AVUser.getCurrentUser().getUsername());
         RelativeLayout ll_sex = (RelativeLayout) findViewById(R.id.rl_sex);
         RelativeLayout rl_pic = (RelativeLayout) findViewById(R.id.rl_pic);

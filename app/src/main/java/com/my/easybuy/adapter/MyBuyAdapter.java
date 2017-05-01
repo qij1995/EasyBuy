@@ -88,6 +88,7 @@ public class MyBuyAdapter extends BaseAdapter {
                 intent.putExtra("pay_objectId",objectId);
                 intent.setClass(context, PayAddressActivity.class);
                 context.startActivity(intent);
+
             }
         });
 

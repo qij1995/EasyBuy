@@ -12,13 +12,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVUser;
+import com.my.easybuy.R;
+import com.my.easybuy.activity.ChangePasswordActivity;
 import com.my.easybuy.activity.DaiFaHuoActivity;
 import com.my.easybuy.activity.DaiFuKuanActivity;
+import com.my.easybuy.activity.DaiPingJiaActivity;
 import com.my.easybuy.activity.DaiShouHuoActivity;
 import com.my.easybuy.activity.LoginActivity;
 import com.my.easybuy.activity.PersonActivity;
-import com.my.easybuy.R;
-import com.my.easybuy.activity.DaiPingJiaActivity;
 
 
 public class SettingFragment extends Fragment implements View.OnClickListener{
@@ -29,6 +30,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
     private LinearLayout ll_daipingjia;
     private RelativeLayout rl_person;
     private RelativeLayout rl_about;
+    private RelativeLayout rl_account;
     private TextView tv_login_out;
 
     @Nullable
@@ -47,6 +49,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
         ll_daipingjia.setOnClickListener(this);
         ll_daishouhuo.setOnClickListener(this);
         rl_person.setOnClickListener(this);
+        rl_account.setOnClickListener(this);
         rl_about.setOnClickListener(this);
         tv_login_out.setOnClickListener(this);
     }
@@ -58,6 +61,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
         ll_daipingjia= (LinearLayout) view.findViewById(R.id.ll_daipingjia);
         rl_person= (RelativeLayout) view.findViewById(R.id.rl_person);
         rl_about= (RelativeLayout) view.findViewById(R.id.rl_about);
+        rl_account= (RelativeLayout) view.findViewById(R.id.rl_account);
         tv_login_out= (TextView) view.findViewById(R.id.tv_login_out);
     }
 
@@ -88,6 +92,11 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
             case R.id.rl_person:
                 intent = new Intent();
                 intent.setClass(getActivity(),PersonActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.rl_account:
+                intent = new Intent();
+                intent.setClass(getActivity(),ChangePasswordActivity.class);
                 startActivity(intent);
                 break;
             case R.id.rl_about:

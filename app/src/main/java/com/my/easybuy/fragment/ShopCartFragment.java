@@ -1,18 +1,14 @@
 package com.my.easybuy.fragment;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.avos.avoscloud.AVException;
@@ -21,9 +17,8 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
 import com.my.easybuy.Entity.ShopCartEntity;
-import com.my.easybuy.adapter.ShopCartAdapter;
 import com.my.easybuy.R;
-import com.my.easybuy.activity.EditGoodsActivity;
+import com.my.easybuy.adapter.ShopCartAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -151,6 +146,9 @@ public class ShopCartFragment extends Fragment implements SwipeRefreshLayout.OnR
                         String myId=object.getObjectId();
                         list.add(new ShopCartEntity(AVUser.getCurrentUser(),url,des,price,number,objId,myId,objectId,saleName));
                     }
+                    adapter.setData(list);
+                    adapter.notifyDataSetChanged();
+                }else {
                     adapter.setData(list);
                     adapter.notifyDataSetChanged();
                 }

@@ -10,10 +10,10 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:background="@mipmap/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        />
+        android:background="@mipmap/logo" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,10 +35,10 @@
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_alignBottom="@+id/iv_account"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="7dp"
                 android:layout_toRightOf="@+id/iv_account"
-                android:layout_alignBottom="@+id/iv_account"
                 android:background="@null"
                 android:hint="请输入账号"
                 android:singleLine="true"
@@ -70,10 +70,10 @@
                 android:id="@+id/et_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_password"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="7dp"
                 android:layout_toRightOf="@+id/iv_password"
-                android:layout_alignBottom="@+id/iv_password"
                 android:background="@null"
                 android:hint="请输入密码"
                 android:inputType="textPassword"
@@ -106,20 +106,40 @@
             android:textColor="@color/colorPrimary"
             android:textSize="22sp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
-
-            <TextView
-                android:id="@+id/tv_register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:padding="5dp"
-                android:text="还没账号 注册>"
-                android:textColor="@color/mgray" />
-        </RelativeLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:paddingBottom="10dp"
+            android:text="注册"
+            android:textColor="@color/mgray" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <TextView
+            android:id="@+id/tv_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="忘记密码？"
+            android:textColor="@color/mgray" />
+    </RelativeLayout>
 </RelativeLayout>

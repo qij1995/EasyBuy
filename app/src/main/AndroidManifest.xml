@@ -65,7 +65,11 @@
         <activity android:name=".activity.DaiShouHuoActivity" />
         <activity android:name=".activity.DaiPingJiaActivity" />
         <activity android:name=".activity.EditGoodsActivity" />
-        <activity android:name=".activity.GuideActivity"></activity>
+        <activity android:name=".activity.EmailVerfiyActivity" />
+        <activity android:name=".activity.GuideActivity" />
+        <activity android:name=".activity.ChangePasswordActivity" />
+        <activity android:name=".activity.ForgetActivity" />
+        <activity android:name=".activity.ForgetNextActivity"></activity>
     </application>
 
 </manifest>
