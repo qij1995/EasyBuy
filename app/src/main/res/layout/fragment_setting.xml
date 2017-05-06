@@ -36,6 +36,17 @@
             android:text="我的订单"
             android:textSize="16dp"
             />
+        <TextView
+            android:id="@+id/tv_all_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_background"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="其他订单 >"
+            android:textSize="16dp"
+            />
     </RelativeLayout>
 
     <LinearLayout

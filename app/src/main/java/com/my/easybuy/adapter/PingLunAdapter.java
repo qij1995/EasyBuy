@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.my.easybuy.Entity.PingLunEntity;
 import com.my.easybuy.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -53,12 +56,14 @@ public class PingLunAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view= LayoutInflater.from(context).inflate(R.layout.list_item_pingjia,null);
         TextView tv_my_name= (TextView) view.findViewById(R.id.tv_my_name);
+        TextView tv_my_date= (TextView) view.findViewById(R.id.tv_my_date);
         TextView tv_my_content= (TextView) view.findViewById(R.id.tv_my_content);
         TextView tv_sale_name= (TextView) view.findViewById(R.id.tv_sale_name);
         TextView tv_sale_content= (TextView) view.findViewById(R.id.tv_sale_content);
         RelativeLayout rl_my= (RelativeLayout) view.findViewById(R.id.rl_my);
 
         tv_my_name.setText(list.get(position).getUser().getUsername()+":");
+        tv_my_date.setText(ConverToString(list.get(position).getCreateDate()));
         tv_my_content.setText(list.get(position).getContent());
 
         if (list.get(position).getSaleContent()!=null && list.get(position).getSaleContent().length()>0){
@@ -72,5 +77,12 @@ public class PingLunAdapter extends BaseAdapter {
 
 
         return view;
+    }
+    //把日期转为字符串
+    public static String ConverToString(Date date)
+    {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+        return df.format(date);
     }
 }

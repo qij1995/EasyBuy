@@ -1,7 +1,6 @@
 package com.my.easybuy.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
@@ -18,6 +17,7 @@ import com.my.easybuy.R;
 import com.my.easybuy.adapter.PingLunAdapter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -68,7 +68,8 @@ public class DetailPingLunActivity extends Activity implements View.OnClickListe
                         String content=object.getString("content");
                         String saleName=object.getString("saleName");
                         String saleContent=object.getString("saleContent");
-                        list.add(new PingLunEntity(objId,user,content,saleName,saleContent));
+                        Date createDate=object.getCreatedAt();
+                        list.add(new PingLunEntity(objId,user,content,saleName,saleContent,createDate));
                     }
                     adapter.setData(list);
                     adapter.notifyDataSetChanged();

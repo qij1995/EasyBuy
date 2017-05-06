@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVUser;
 import com.my.easybuy.R;
+import com.my.easybuy.activity.AllOrderActivity;
 import com.my.easybuy.activity.ChangePasswordActivity;
 import com.my.easybuy.activity.DaiFaHuoActivity;
 import com.my.easybuy.activity.DaiFuKuanActivity;
@@ -32,6 +33,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
     private RelativeLayout rl_about;
     private RelativeLayout rl_account;
     private TextView tv_login_out;
+    private TextView tv_all_order;
 
     @Nullable
     @Override
@@ -52,6 +54,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
         rl_account.setOnClickListener(this);
         rl_about.setOnClickListener(this);
         tv_login_out.setOnClickListener(this);
+        tv_all_order.setOnClickListener(this);
     }
 
     private void initView() {
@@ -63,12 +66,18 @@ public class SettingFragment extends Fragment implements View.OnClickListener{
         rl_about= (RelativeLayout) view.findViewById(R.id.rl_about);
         rl_account= (RelativeLayout) view.findViewById(R.id.rl_account);
         tv_login_out= (TextView) view.findViewById(R.id.tv_login_out);
+        tv_all_order= (TextView) view.findViewById(R.id.tv_all_order);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()){
+            case R.id.tv_all_order:
+                intent=new Intent();
+                intent.setClass(getActivity(), AllOrderActivity.class);
+                startActivity(intent);
+                break;
             case R.id.ll_daifukuan:
                 intent=new Intent();
                 intent.setClass(getActivity(), DaiFuKuanActivity.class);
