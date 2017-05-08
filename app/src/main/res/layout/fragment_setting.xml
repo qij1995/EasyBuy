@@ -27,6 +27,18 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:background="@mipmap/per_background" />
+        <com.my.easybuy.util.CircleImageView
+            android:id="@+id/iv_infopic"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="4dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@+id/iv_pic"
+            android:textColor="@color/white"
+            android:src="@mipmap/default_avatar"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

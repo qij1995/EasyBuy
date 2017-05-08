@@ -70,7 +70,8 @@
         <activity android:name=".activity.GuideActivity" />
         <activity android:name=".activity.ChangePasswordActivity" />
         <activity android:name=".activity.ForgetActivity" />
-        <activity android:name=".activity.ForgetNextActivity"></activity>
+        <activity android:name=".activity.ForgetNextActivity" />
+        <activity android:name=".activity.AboutUsActivity"></activity>
     </application>
 
 </manifest>

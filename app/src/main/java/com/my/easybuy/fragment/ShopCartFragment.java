@@ -98,19 +98,19 @@ public class ShopCartFragment extends Fragment implements SwipeRefreshLayout.OnR
 //        });
     }
 
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-            switch (msg.what) {
-                case 100:
-//                    initData();
-                    adapter.setData(list);
-                    adapter.notifyDataSetChanged();
-                    break;
-            }
-        }
-    };
+//    private Handler handler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+////            super.handleMessage(msg);
+//            switch (msg.what) {
+//                case 100:
+////                    initData();
+//                    adapter.setData(list);
+//                    adapter.notifyDataSetChanged();
+//                    break;
+//            }
+//        }
+//    };
 
     private void initView() {
         refreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.refresh);

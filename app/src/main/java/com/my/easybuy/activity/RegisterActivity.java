@@ -63,18 +63,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                     if (name != null && pwd != null  && name.length() > 0 && pwd.length() > 0 ) {
                         AVUser user = new AVUser();
                         user.setUsername(name);
-//                        user.requestEmailVerfiyInBackground(email, new RequestEmailVerifyCallback() {
-//                            @Override
-//                            public void done(AVException e) {
-//                                if (e == null) {
-//                                    Intent intent = new Intent();
-//                                    intent.setClass(RegisterActivity.this,EmailVerfiyActivity.class);
-//                                    startActivity(intent);
-//                                } else {
-//                                    Toast.makeText(RegisterActivity.this, "邮箱发送失败，请检查网络或者确认邮箱地址的正确", Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        });
                         user.setEmail(email);
                         user.setPassword(pwd);
                         user.put("type","买家");
