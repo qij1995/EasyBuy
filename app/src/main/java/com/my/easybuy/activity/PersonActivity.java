@@ -105,7 +105,7 @@ public class PersonActivity extends Activity implements View.OnClickListener {
         if (null != sex) {
             tv_sex.setText(sex);
         } else {
-            tv_sex.setText("未设置");
+            tv_sex.setText("未设置性别");
         }
         back.setOnClickListener(this);
         if (AVUser.getCurrentUser().getMobilePhoneNumber() != null){

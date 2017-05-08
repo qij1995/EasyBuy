@@ -62,7 +62,7 @@
             android:padding="5dp"
             android:paddingLeft="12dp"
             android:singleLine="true"
-            android:textColor="#ff363636"
+            android:textColor="#353535"
             android:textSize="16sp" />
 
         <View
@@ -85,7 +85,7 @@
             android:padding="5dp"
             android:paddingLeft="12dp"
             android:singleLine="true"
-            android:textColor="#ff363636"
+            android:textColor="#353535"
             android:textSize="16sp" />
 
         <View
@@ -109,7 +109,7 @@
             android:padding="5dp"
             android:paddingLeft="12dp"
             android:singleLine="true"
-            android:textColor="#ff363636"
+            android:textColor="#353535"
             android:textSize="16sp" />
 
         <View
@@ -133,7 +133,7 @@
             android:padding="5dp"
             android:paddingLeft="12dp"
             android:singleLine="true"
-            android:textColor="#ff363636"
+            android:textColor="#353535"
             android:textSize="16sp" />
 
         <View
@@ -142,6 +142,49 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:background="#e3e3e3" />
+        <RelativeLayout
+            android:id="@+id/rl_sex"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:clickable="false">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="请选择性别"
+                android:textColor="#353535"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:padding="10dp"
+                android:src="@drawable/arr" />
+            <TextView
+                android:id="@+id/tv_sex"
+                android:layout_toLeftOf="@id/d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text=""
+                android:textColor="#A3A3A3"
+                android:textSize="18sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#e3e3e3" />
+
+        </RelativeLayout>
     </LinearLayout>
 
     <TextView
