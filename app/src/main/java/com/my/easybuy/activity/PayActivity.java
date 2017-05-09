@@ -32,12 +32,16 @@ public class PayActivity extends Activity implements View.OnClickListener {
     private TextView tv_name;
     private TextView tv_phone;
     private TextView tv_address;
+    private TextView tv_price;
     private EditText et_password;
     private TextView tv_ok;
     private TextView tv_back;
     private TextView tv_number;
     private String saleName;
-//TODO
+    private int pre;
+    private int num;
+    private String total;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,9 @@ public class PayActivity extends Activity implements View.OnClickListener {
 //        objectId=getIntent().getStringExtra("objectId");
         pay_objectId = getIntent().getStringExtra("pay_objectId");
         saleName = getIntent().getStringExtra("saleName");
-
+        pre = Integer.parseInt(price);
+        num = Integer.parseInt(number);
+        total = String.valueOf(pre*num);
         initView();
         initEvent();
     }
@@ -73,11 +79,12 @@ public class PayActivity extends Activity implements View.OnClickListener {
         tv_ok = (TextView) findViewById(R.id.tv_ok);
         et_password = (EditText) findViewById(R.id.et_password);
         tv_number = (TextView) findViewById(R.id.tv_number);
-
+        tv_price = (TextView) findViewById(R.id.tv_price);
         tv_name.setText(name);
         tv_phone.setText(phone);
         tv_address.setText(address);
-        tv_number.setText(number);
+        tv_number.setText(number+" 件");
+        tv_price.setText(total+" 元");
     }
 
     @Override

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/colorPrimary"
-        >
+        android:background="@color/colorPrimary">
+
         <TextView
             android:id="@+id/tv_back"
-            style="@style/back_textview"
-            />
+            style="@style/back_textview" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:gravity="center_vertical"
-            android:textSize="20sp"
             android:text="搜索"
             android:textColor="@android:color/white"
-            />
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -28,37 +29,62 @@
         android:layout_height="40dp"
         android:background="#CECECE"
         android:focusable="true"
-        android:focusableInTouchMode="true"
-        >
+        android:focusableInTouchMode="true">
+
         <EditText
             android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:background="@drawable/search_bg"
-            android:hint="搜索"
-            android:textSize="16sp"
             android:gravity="center"
+            android:hint="搜索"
             android:textColorHint="#EAEAEA"
-            />
+            android:textSize="16sp" />
+
         <ImageView
             android:id="@+id/iv_search"
             android:layout_width="22dp"
-            android:padding="5dp"
             android:layout_height="22dp"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="25dp"
-            android:background="@drawable/search"/>
+            android:background="@drawable/search"
+            android:padding="5dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_nosearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_nosearch"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/nosearch"/>
+        <TextView
+            android:id="@+id/tv_nosearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/iv_nosearch"
+            android:text="暂时搜索不到该类型商品"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
+
         <ListView
             android:id="@+id/lv"
             android:layout_width="match_parent"

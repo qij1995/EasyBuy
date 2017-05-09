@@ -81,7 +81,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         }
                     } else {
                         // 登录失败
-                        Toast.makeText(context,"登录失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"登录失败,请检查账号密码", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

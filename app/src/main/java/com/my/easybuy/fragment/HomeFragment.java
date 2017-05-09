@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemClickLis
     private GridView gridView;
     private Context context;
     private ViewPager viewPager;
-    private int[] imageIds={R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d};
+    private int[] imageIds={R.drawable.a,R.mipmap.banner,R.mipmap.banner2,R.mipmap.banner3};
     private List<ImageView> imageList;
     private MyAdapter adapter;
     private int lastPosition = 0;
@@ -141,37 +141,37 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemClickLis
                 startActivity(intent);
                 break;
             case 2:
-                intent.putExtra("type","男鞋");
+                intent.putExtra("type","时尚箱包");
                 intent.setClass(context,ShopListActivity.class);
                 startActivity(intent);
                 break;
             case 3:
-                intent.putExtra("type","女鞋");
+                intent.putExtra("type","手机伴侣");
                 intent.setClass(context,ShopListActivity.class);
                 startActivity(intent);
                 break;
             case 4:
-                intent.putExtra("type","内衣配饰");
+                intent.putExtra("type","首饰");
                 intent.setClass(context,ShopListActivity.class);
                 startActivity(intent);
                 break;
             case 5:
-                intent.putExtra("type","箱包手袋");
+                intent.putExtra("type","手饰");
                 intent.setClass(context,ShopListActivity.class);
                 startActivity(intent);
                 break;
             case 6:
-                intent.putExtra("type","美妆个护");
+                intent.putExtra("type","头饰");
                 intent.setClass(context,ShopListActivity.class);
                 startActivity(intent);
                 break;
             case 7:
-                intent.putExtra("type","钟表珠宝");
+                intent.putExtra("type","美食");
                 intent.setClass(context,ShopListActivity.class);
                 startActivity(intent);
                 break;
             case 8:
-                intent.putExtra("type","手机数码");
+                intent.putExtra("type","数码产品");
                 intent.setClass(context,ShopListActivity.class);
                 startActivity(intent);
                 break;

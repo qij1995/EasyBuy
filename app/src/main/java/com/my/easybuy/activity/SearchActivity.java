@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
     private TextView tv_back;
     private EditText et_search;
     private ImageView iv_search;
+    private RelativeLayout rl_nosearch;
     private SwipeRefreshLayout refreshLayout;
     private ListView lv;
     private List<GoodsDetail> list=new ArrayList<>();
@@ -69,6 +71,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
                 @Override
                 public void done(List<AVObject> objects, AVException e) {
                     if (objects!=null && objects.size()>0){
+                        rl_nosearch.setVisibility(View.GONE);
                         for (AVObject object : objects){
                             AVFile pic=object.getAVFile("pic");
                             String des=object.getString("des");
@@ -81,6 +84,8 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
                         }
                         adapter.setData(list);
                         adapter.notifyDataSetChanged();
+                    }else{
+                        rl_nosearch.setVisibility(View.VISIBLE);
                     }
                 }
             });
@@ -99,6 +104,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
         et_search= (EditText) findViewById(R.id.et_search);
         iv_search= (ImageView) findViewById(R.id.iv_search);
         refreshLayout= (SwipeRefreshLayout) findViewById(R.id.refresh);
+        rl_nosearch = (RelativeLayout)findViewById(R.id.rl_nosearch);
         lv= (ListView) findViewById(R.id.lv);
 
         if (content!=null){

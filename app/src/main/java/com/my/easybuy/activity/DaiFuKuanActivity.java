@@ -92,7 +92,7 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
 
     private void initEvent() {
         tv_back.setOnClickListener(this);
-        refreshLayout.setOnRefreshListener(this);
+        refreshLayout.setOnRefreshListener(this);//设置监听，需要重写onRefresh()方法，顶部下拉时会调用这个方法，
 
     }
 
@@ -118,9 +118,9 @@ public class DaiFuKuanActivity extends Activity implements View.OnClickListener,
      */
     public void startRefresh(){
         Log.e("startRefresh","startRefresh有作用");
-        refreshLayout.setRefreshing(false);
-        refreshLayout.setColorSchemeResources(R.color.colorPrimary);
-        refreshLayout.setProgressViewOffset(false, 0, 50);
+        refreshLayout.setRefreshing(false);//设置刷新状态
+        refreshLayout.setColorSchemeResources(R.color.colorPrimary);//设置下拉进度条的颜色主题
+        refreshLayout.setProgressViewOffset(false, 0, 50);//设置进度条是否缩放，以及相对Y轴位置
         refreshLayout.setRefreshing(true);
     }
 

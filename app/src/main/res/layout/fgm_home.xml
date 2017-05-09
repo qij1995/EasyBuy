@@ -45,14 +45,14 @@
     </android.support.v4.view.ViewPager>
 
     <GridView
-
         android:id="@+id/gridView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:horizontalSpacing="0.0dip"
+        android:layout_marginTop="10dp"
         android:listSelector="@color/transparent"
-        android:numColumns="3"
+        android:numColumns="2"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="0.0dip">
+        android:verticalSpacing="-10dp">
     </GridView>
 </LinearLayout>

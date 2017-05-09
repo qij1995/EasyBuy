@@ -12,8 +12,8 @@ import com.my.easybuy.R;
 
 public class HomeAdapter extends BaseAdapter {
     private static Integer[] images = {
-            R.drawable.nanzhuang,R.drawable.nvzhuang,R.drawable.nanxie,R.drawable.nvxie,R.drawable.neiyi,R.drawable.xiangbao,R.drawable.meizhuang,R.drawable.zhongbiao,R.drawable.shuma};
-    private static String[] texts = {"男    装", "女    装", "男    鞋", "女    鞋", "内衣配饰", "箱包手袋",  "美妆个护","钟表珠宝","手机数码"};
+            R.mipmap.men,R.mipmap.women,R.mipmap.bag,R.mipmap.phone,R.mipmap.neck,R.mipmap.hand,R.mipmap.hair,R.mipmap.cate,R.mipmap.digital};
+//    private static String[] texts = {};
 
     private Context context;
 
@@ -44,18 +44,18 @@ public class HomeAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.item_home, null);
             vh = new ViewHolder();
             vh.iv = (ImageView) convertView.findViewById(R.id.Image);
-            vh.tv_des = (TextView) convertView.findViewById(R.id.Text);
+//            vh.tv_des = (TextView) convertView.findViewById(R.id.Text);
             convertView.setTag(vh);
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
         vh.iv.setImageResource(images[position]);
-        vh.tv_des.setText(texts[position]);
+//        vh.tv_des.setText(texts[position]);
         return convertView;
     }
 
     class ViewHolder {
         ImageView iv;
-        TextView tv_des;
+//        TextView tv_des;
     }
 }

@@ -131,6 +131,7 @@
                     android:textSize="14sp"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
+                    android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:text="立刻购买"
                     android:background="@drawable/login_btn_bg"

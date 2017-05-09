@@ -2,19 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_margin="0.0dip"
     android:background="@null" >
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerInParent="true"
-        android:padding="12.0dip" >
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="13dp"
+        >
 
         <ImageView
             android:id="@+id/Image"
-            android:layout_width="58.0dip"
-            android:layout_height="58.0dip"
+            android:layout_width="152dp"
+            android:layout_height="63dp"
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"
             android:contentDescription="@string/app_name"
