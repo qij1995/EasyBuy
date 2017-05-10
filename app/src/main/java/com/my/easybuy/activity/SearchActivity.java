@@ -79,8 +79,8 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
                             String type=object.getString("type");
                             String objId=object.getString("objId");
                             String objectId=object.getString("objectId");
-                            String saleName=object.getString("saleName");
-                            list.add(new GoodsDetail(pic,des,price,type,objId,saleName,objectId));
+//                            String saleName=object.getString("saleName");
+                            list.add(new GoodsDetail(pic,des,price,type,objId,objectId));
                         }
                         adapter.setData(list);
                         adapter.notifyDataSetChanged();
@@ -135,7 +135,7 @@ public class SearchActivity extends Activity implements View.OnClickListener,Swi
                 intent.putExtra("price",list.get(position).getPrice());
                 intent.putExtra("objId",list.get(position).getObjId());
                 intent.putExtra("objectId",list.get(position).getObjectId());
-                intent.putExtra("saleName",list.get(position).getSaleName());
+//                intent.putExtra("saleName",list.get(position).getSaleName());
                 startActivity(intent);
             }
         });

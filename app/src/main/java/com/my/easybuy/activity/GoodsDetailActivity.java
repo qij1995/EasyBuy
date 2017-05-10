@@ -53,7 +53,6 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
         price=getIntent().getStringExtra("price");
         objId=getIntent().getStringExtra("objId");
         objectId=getIntent().getStringExtra("objectId");
-        saleName=getIntent().getStringExtra("saleName");
         initView();
         initEvent();
     }
@@ -82,7 +81,7 @@ public class GoodsDetailActivity extends Activity implements View.OnClickListene
         tv_pinglun= (TextView) findViewById(R.id.tv_pinglun);
 
         tv_des.setText(des);
-        tv_price.setText("¥"+price);
+        tv_price.setText("¥ "+price);
         if (url!=null){
             ImageLoader.getInstance().displayImage(url,iv_goods,options);
         }

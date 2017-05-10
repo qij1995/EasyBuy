@@ -67,7 +67,7 @@ public class ShopListAdapter extends BaseAdapter {
             ImageLoader.getInstance().displayImage(url,iv,options);
         }
         tv_des.setText(list.get(position).getDes());
-        tv_price.setText("¥"+list.get(position).getPrice());
+        tv_price.setText("¥ "+list.get(position).getPrice());
         return view;
     }
 

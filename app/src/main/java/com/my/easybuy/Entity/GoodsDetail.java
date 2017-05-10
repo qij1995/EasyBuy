@@ -13,26 +13,19 @@ public class GoodsDetail {
     private String type;
     private String objId;
     private String objectId;
-    private String saleName;
 
 
-    public GoodsDetail(AVFile pic, String des, String price, String type , String objId, String saleName,String objectId) {
+
+    public GoodsDetail(AVFile pic, String des, String price, String type , String objId, String objectId) {
         this.pic = pic;
         this.des = des;
         this.price = price;
         this.type=type;
         this.objId = objId;
         this.objectId = objectId;
-        this.saleName=saleName;
+
     }
 
-    public String getSaleName() {
-        return saleName;
-    }
-
-    public void setSaleName(String saleName) {
-        this.saleName = saleName;
-    }
 
     public String getType() {
         return type;

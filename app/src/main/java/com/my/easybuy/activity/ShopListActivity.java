@@ -65,8 +65,7 @@ public class ShopListActivity extends Activity implements View.OnClickListener,S
                         String price=object.getString("price");
                         String objId=object.getString("objId");
                         String objectId=object.getObjectId();
-                        String saleName=object.getAVUser("user").getUsername();
-                        list.add(new GoodsDetail(pic,des,price,type,objId,saleName,objectId));
+                        list.add(new GoodsDetail(pic,des,price,type,objId,objectId));
                     }
                     adapter.setData(list);
                     adapter.notifyDataSetChanged();
@@ -126,7 +125,6 @@ public class ShopListActivity extends Activity implements View.OnClickListener,S
                 intent.putExtra("price",list.get(position).getPrice());
                 intent.putExtra("objId",list.get(position).getObjId());
                 intent.putExtra("objectId",list.get(position).getObjectId());
-                intent.putExtra("saleName",list.get(position).getSaleName());
                 startActivity(intent);
             }
         });

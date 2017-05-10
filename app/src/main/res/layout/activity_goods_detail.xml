@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
@@ -23,12 +22,21 @@
             android:textColor="@android:color/white"
             />
     </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/rl_title"
+    android:layout_above="@+id/ll_bot"
+    >
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <ImageView
-        android:layout_below="@id/rl_title"
         android:id="@+id/iv_goods"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="380dp"
         android:background="@drawable/welcome_1"
         android:scaleType="centerCrop"
         />
@@ -120,10 +128,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_address"
         android:layout_marginTop="20dp"
         android:layout_below="@id/ll_num"
         android:layout_width="match_parent"
         android:layout_height="44dp"
+        android:layout_marginBottom="15dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <TextView
@@ -144,7 +154,12 @@
             android:layout_marginRight="20dp"/>
     </LinearLayout>
 
+
+
+</RelativeLayout>
+</ScrollView>
     <LinearLayout
+        android:id="@+id/ll_bot"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -185,6 +200,4 @@
             android:layout_height="match_parent"
             android:layout_weight="1"/>
     </LinearLayout>
-
-
 </RelativeLayout>

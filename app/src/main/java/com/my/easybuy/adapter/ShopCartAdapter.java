@@ -97,8 +97,8 @@ public class ShopCartAdapter extends BaseAdapter {
         final String saleName = list.get(position).getSaleName();
         final int positions = position;
         tv_des.setText(des);
-        tv_price.setText("¥" + price);
-        tv_num.setText("x" + number);
+        tv_price.setText("¥ " + price);
+        tv_num.setText("x " + number);
         ImageLoader.getInstance().displayImage(url, iv_goods, options);
 
 //        String objId=list.get(position).getObjId();
@@ -133,9 +133,6 @@ public class ShopCartAdapter extends BaseAdapter {
                                 try {
                                     AVObject object = query.get(objectId);
                                     object.deleteInBackground();
-//                                    Message message = new Message();
-//                                    message.what = 100;
-//                                    handler.sendMessage(message);
                                 } catch (AVException e) {
                                     e.printStackTrace();
                                 }
