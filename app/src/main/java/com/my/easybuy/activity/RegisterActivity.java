@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.RequestEmailVerifyCallback;
-import com.avos.avoscloud.SaveCallback;
 import com.avos.avoscloud.SignUpCallback;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.my.easybuy.R;
@@ -122,7 +121,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
 
                                 } else {
                                     Log.e("UUY",e.toString());
-                                    Toast.makeText(RegisterActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegisterActivity.this, "注册失败，请确认邮箱未被绑定过", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
